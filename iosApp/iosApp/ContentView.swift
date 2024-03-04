@@ -1,5 +1,5 @@
 import SwiftUI
-import shared
+import Shared
 
 struct ContentView: View {
 
@@ -19,7 +19,7 @@ struct ContentView: View {
         case _ as MainAction.Close:
             router.routeToExit()
         case action as MainAction.ShowMessage:
-            print("TEST: \(action.name)")
+//            print("TEST: \(action.name)")
 //        case .ShowMessage(_: name):
             print("TEST")
             return
