@@ -3,6 +3,7 @@ package com.itis.weather.di
 import com.itis.weather.core.configuration.Configuration
 import com.itis.weather.core.configuration.PlatformConfiguration
 import com.itis.weather.core.network.networkModule
+import com.itis.weather.feature.search.weatherModule
 import org.kodein.di.DI
 import org.kodein.di.DirectDI
 import org.kodein.di.bind
@@ -18,6 +19,7 @@ object PlatformSDK {
             importAll(
                 createConfigurationModule(conf),
                 networkModule,
+                weatherModule,
             )
         }.direct
     }
