@@ -1,23 +1,25 @@
 [versions]
-agp = "8.4.0-alpha12"
+agp = "8.4.0-beta02"
 
 # compose
-compose = "1.6.2"
-compose-compiler = "1.5.5" # !!! extend from kotlin version https://developer.android.com/jetpack/androidx/releases/compose-kotlin
-compose-material3 = "1.2.0"
+compose = "1.6.3"
+compose-compiler = "1.5.11" # !!! extend from kotlin version https://developer.android.com/jetpack/androidx/releases/compose-kotlin
+compose-material3 = "1.2.1"
 
 # multiplatform
-kotlin = "1.9.20"
+kotlin = "1.9.23"
 coroutines = "1.7.3" # https://github.com/Kotlin/kotlinx.coroutines
-serialization = "1.5.1" # https://github.com/Kotlin/kotlinx.serialization
-immutable = "0.3.5" # https://github.com/Kotlin/kotlinx.collections.immutable
+serialization = "1.6.3" # https://github.com/Kotlin/kotlinx.serialization
+immutable = "0.3.7" # https://github.com/Kotlin/kotlinx.collections.immutable
+datetime = "0.6.0-RC.2" # https://github.com/Kotlin/kotlinx-datetime
 sqlDelight = "1.5.5" # https://github.com/cashapp/sqldelight
-ktor = "2.3.3" # https://github.com/ktorio/ktor
+ktor = "2.3.9" # https://github.com/ktorio/ktor
 kodein = "7.21.2" # https://github.com/kosi-libs/Kodein
 
 # androidx https://developer.android.com/jetpack/androidx/versions
 androidx-lifecycle = "2.7.0"
 androidx-activityCompose = "1.8.2"
+androidx-splashscreen = "1.0.1"
 
 coil = "2.4.0" # https://github.com/coil-kt/coil
 
@@ -31,7 +33,7 @@ androidx-activity-compose = { module = "androidx.activity:activity-compose", ver
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
-#compose-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "compose"  }
+compose-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "compose"  }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-animation = { module = "androidx.compose.animation:animation", version.ref = "compose"  }
 
@@ -40,12 +42,15 @@ compose-material-icons-core = { module = "androidx.compose.material:material-ico
 compose-material-icons-ext = { module = "androidx.compose.material:material-icons-extended", version.ref = "compose"   }
 
 androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidx-lifecycle"}
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidx-lifecycle"}
+androidx-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "androidx-splashscreen" }
 
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 kotlinx-immutable = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version.ref = "immutable" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "datetime" }
 
 kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "serialization" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }

@@ -15,8 +15,6 @@ internal class RemoteWeatherSource(
         return httpClient.get {
             url("weather")
             parameter("q", query)
-            parameter("units", "metric")
-            parameter("appid", "56fc6c6cb76c0864b4cd055080568268")
         }.body()
     }
 }

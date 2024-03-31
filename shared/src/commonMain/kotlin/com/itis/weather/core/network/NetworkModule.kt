@@ -33,12 +33,14 @@ val networkModule = DI.Module(name = "networkModule") {
 
     bindSingleton {
         buildHttpClient(
-            engine = instance(),
+            engine = instance<HttpEngineFactory>().createEngine(instance()),
             json = instance(),
             configuration = instance(),
         )
     }
 }
+
+private const val BASE_URL = "api.openweathermap.org/data/2.5"
 
 private fun buildHttpClient(
     engine: HttpClientEngineFactory<HttpClientEngineConfig>,
@@ -57,6 +59,9 @@ private fun buildHttpClient(
         json(json)
     }
 
+    install(createApiKeyPlugin())
+//    install(ApiKeyPlugin)
+
     install(HttpTimeout) {
         connectTimeoutMillis = 15000
         requestTimeoutMillis = 30000
@@ -65,7 +70,7 @@ private fun buildHttpClient(
     defaultRequest {
 
         url {
-            this.host = "api.openweathermap.org/data/2.5"
+            this.host = BASE_URL
             this.protocol = URLProtocol.HTTPS
         }
     }

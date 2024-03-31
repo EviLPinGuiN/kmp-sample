@@ -6,12 +6,23 @@ struct ContentView: View {
     private let router = Router()
 	private let greet = Greeting().greet()
 
+//    private let viewModel = XViewModel()
+
 	var body: some View {
+//        let cancelable = statePublisher(viewModel.uiState).sink { state in
+//            state.weather.cloudsPercent
+//        }
+//        viewModel.uiState.watch { state in
+//            state?.weather.humidity
+//        }
 		Text(greet)
             .background(.primary)
             .onTapGesture {
                 handleAction(MainAction.Close())
             }
+//            .onReceive(statePublisher(viewModel.uiState), perform: { state in
+//                state.weather.humidity
+//            })
 	}
 
     private func handleAction(_ action: MainAction?) {

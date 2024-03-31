@@ -10,13 +10,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.itis.weather.Greeting
-import com.itis.weather.di.PlatformSDK
-import com.itis.weather.feature.search.usecase.GetWeatherByNameUseCase
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.itis.weather.core.design.MyApplicationTheme
+import com.itis.weather.feature.city.CityWeatherScreen
 
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
         super.onCreate(savedInstanceState)
 
         setContent {
@@ -25,7 +26,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingView(Greeting().greet())
+                    CityWeatherScreen()
                 }
             }
         }

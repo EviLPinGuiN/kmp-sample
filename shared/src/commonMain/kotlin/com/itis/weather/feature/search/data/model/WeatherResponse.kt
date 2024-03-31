@@ -50,14 +50,10 @@ data class WeatherResponse(
     data class Main(
         @SerialName("feels_like")
         val feelsLike: Double?,
-        @SerialName("grnd_level")
-        val grndLevel: Int?,
         @SerialName("humidity")
         val humidity: Int?,
         @SerialName("pressure")
         val pressure: Int?,
-        @SerialName("sea_level")
-        val seaLevel: Int?,
         @SerialName("temp")
         val temp: Double?,
         @SerialName("temp_max")
@@ -73,9 +69,9 @@ data class WeatherResponse(
         @SerialName("id")
         val id: Int?,
         @SerialName("sunrise")
-        val sunrise: Int?,
+        val sunrise: Long?,
         @SerialName("sunset")
-        val sunset: Int?,
+        val sunset: Long?,
         @SerialName("type")
         val type: Int?
     )
@@ -95,10 +91,10 @@ data class WeatherResponse(
     @Serializable
     data class Wind(
         @SerialName("deg")
-        val deg: Int?,
+        val deg: Int? = null,
         @SerialName("gust")
-        val gust: Double?,
+        val gust: Double? = null,
         @SerialName("speed")
-        val speed: Double?
+        val speed: Double? = null,
     )
 }
