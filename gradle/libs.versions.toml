@@ -15,6 +15,7 @@ datetime = "0.6.0-RC.2" # https://github.com/Kotlin/kotlinx-datetime
 sqlDelight = "1.5.5" # https://github.com/cashapp/sqldelight
 ktor = "2.3.9" # https://github.com/ktorio/ktor
 kodein = "7.21.2" # https://github.com/kosi-libs/Kodein
+buildKonfig = "0.15.1" # https://github.com/yshrsmz/BuildKonfig
 
 # androidx https://developer.android.com/jetpack/androidx/versions
 androidx-lifecycle = "2.7.0"
@@ -88,6 +89,7 @@ kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+buildKonfig = { id = "com.codingfeline.buildkonfig", version.ref = "buildKonfig" }
 
 [bundles]
 ktorClientCommon = [

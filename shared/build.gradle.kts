@@ -1,8 +1,11 @@
+import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
+
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.kotlinCocoapods)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.buildKonfig)
 }
 
 kotlin {
@@ -65,6 +68,14 @@ kotlin {
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
+    }
+}
+
+buildkonfig {
+    packageName = "com.itis.weather"
+
+    defaultConfigs {
+        buildConfigField(STRING, "appid", "56fc6c6cb76c0864b4cd055080568268")
     }
 }
 

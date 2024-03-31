@@ -1,5 +1,6 @@
 package com.itis.weather.core.network
 
+import com.itis.weather.BuildKonfig
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.HttpClientPlugin
 import io.ktor.client.plugins.api.SetupRequest
@@ -23,7 +24,7 @@ class ApiKeyPlugin {
 
         override fun install(plugin: ApiKeyPlugin, scope: HttpClient) {
             scope.requestPipeline.intercept(Before) {
-                context.url.parameters.append(API_KEY_NAME, "56fc6c6cb76c0864b4cd055080568268")
+                context.url.parameters.append(API_KEY_NAME, BuildKonfig.appid)
             }
         }
 
@@ -34,7 +35,7 @@ class ApiKeyPlugin {
 fun createApiKeyPlugin() = createClientPlugin(name = "ApiKeyPlugin") {
     on(SetupRequest) { builder ->
         builder.url.parameters.apply {
-            append(API_KEY_NAME, "56fc6c6cb76c0864b4cd055080568268")
+            append(API_KEY_NAME, BuildKonfig.appid)
             append(UNITS_NAME, "metric")
         }
     }
