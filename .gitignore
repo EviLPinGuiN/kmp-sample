@@ -8,6 +8,6 @@ captures
 .cxx
 local.properties
 
-!/keystore/debug.properties
-!/keystore/release.keystore
-!/keystore/release.properties
+/keystore/debug.properties
+/keystore/release.keystore
+/keystore/release.properties
