@@ -12,7 +12,8 @@ coroutines = "1.7.3" # https://github.com/Kotlin/kotlinx.coroutines
 serialization = "1.6.3" # https://github.com/Kotlin/kotlinx.serialization
 immutable = "0.3.7" # https://github.com/Kotlin/kotlinx.collections.immutable
 datetime = "0.6.0-RC.2" # https://github.com/Kotlin/kotlinx-datetime
-sqlDelight = "1.5.5" # https://github.com/cashapp/sqldelight
+sqlDelight = "2.0.2" # https://github.com/cashapp/sqldelight
+settings = "1.1.1" # https://github.com/russhwolf/multiplatform-settings
 ktor = "2.3.9" # https://github.com/ktorio/ktor
 kodein = "7.21.2" # https://github.com/kosi-libs/Kodein
 buildKonfig = "0.15.1" # https://github.com/yshrsmz/BuildKonfig
@@ -70,12 +71,14 @@ coilSvg = { module = "io.coil-kt:coil-svg", version.ref = "coil" }
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 
 kodein-di = { module = "org.kodein.di:kodein-di", version.ref = "kodein" }
-multiplatform-settings = "com.russhwolf:multiplatform-settings:1.0.0"
+multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "settings" }
+multiplatform-settings-serialization = { module = "com.russhwolf:multiplatform-settings-serialization", version.ref = "settings"  }
 
-sqldelight-android-driver = { module = "com.squareup.sqldelight:android-driver", version.ref = "sqlDelight" }
-sqldelight-native-driver = { module = "com.squareup.sqldelight:native-driver", version.ref = "sqlDelight" }
-sqldelight-sqlite-driver = { module = "com.squareup.sqldelight:sqlite-driver", version.ref = "sqlDelight" }
-sqldelight-coroutines-extensions = { module = "com.squareup.sqldelight:coroutines-extensions", version.ref = "sqlDelight" }
+sqldelight-android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "sqlDelight" }
+sqldelight-native-driver = { module = "app.cash.sqldelight:native-driver", version.ref = "sqlDelight" }
+sqldelight-sqlite-driver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqlDelight" }
+sqldelight-sqlite-adapter = { module = "app.cash.sqldelight:primitive-adapters", version.ref = "sqlDelight" }
+sqldelight-coroutines-extensions = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqlDelight" }
 
 timber = "com.jakewharton.timber:timber:5.0.1"
 
@@ -90,6 +93,7 @@ kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref =
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 buildKonfig = { id = "com.codingfeline.buildkonfig", version.ref = "buildKonfig" }
+sqldelight = { id = "app.cash.sqldelight", version.ref = "sqlDelight" }
 
 [bundles]
 ktorClientCommon = [
