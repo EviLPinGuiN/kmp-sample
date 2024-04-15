@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.buildKonfig)
+    alias(libs.plugins.sqldelight)
 }
 
 kotlin {
@@ -41,12 +42,20 @@ kotlin {
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.kotlinx.datetime)
 
+            implementation(libs.multiplatform.settings)
+            implementation(libs.multiplatform.settings.serialization)
+
+            implementation(libs.sqldelight.coroutines.extensions)
+            implementation(libs.sqldelight.sqlite.adapter)
+
             implementation(libs.kodein.di)
         }
         androidMain.dependencies {
             implementation(libs.ktor.client.okhttp)
             implementation(libs.okhttp3.logging.interceptor)
             implementation(libs.kotlinx.coroutines.android)
+
+            implementation(libs.sqldelight.android.driver)
 
             implementation(libs.compose.ui)
             implementation(libs.compose.material3)
@@ -64,6 +73,7 @@ kotlin {
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.ios)
+            implementation(libs.sqldelight.native.driver)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -76,6 +86,14 @@ buildkonfig {
 
     defaultConfigs {
         buildConfigField(STRING, "appid", "56fc6c6cb76c0864b4cd055080568268")
+    }
+}
+
+sqldelight {
+    databases {
+        create("Database") {
+            packageName.set("com.itis.weather")
+        }
     }
 }
 

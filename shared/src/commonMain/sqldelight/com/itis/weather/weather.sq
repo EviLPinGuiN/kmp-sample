@@ -1,0 +1,27 @@
+import kotlin.Float;
+
+CREATE TABLE weatherDB (
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    temp REAL
+--     temp REAL AS Float if want import how float
+);
+--
+insert:
+INSERT OR REPLACE INTO weatherDB VALUES ?;
+
+getAll:
+SELECT * FROM weatherDB;
+
+getWeatherWithTemp:
+SELECT * FROM weatherDB WHERE temp > ?;
+
+clear:
+DELETE FROM weatherDB;
+
+-- CREATE TABLE some_types (
+--   some_long INTEGER,           -- Stored as INTEGER in db, retrieved as Long
+--   some_double REAL,            -- Stored as REAL in db, retrieved as Double
+--   some_string TEXT,            -- Stored as TEXT in db, retrieved as String
+--   some_blob BLOB               -- Stored as BLOB in db, retrieved as ByteArray
+-- );

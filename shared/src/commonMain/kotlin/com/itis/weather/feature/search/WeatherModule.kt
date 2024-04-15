@@ -1,5 +1,6 @@
 package com.itis.weather.feature.search
 
+import com.itis.weather.feature.search.data.LocalWeatherSource
 import com.itis.weather.feature.search.data.RemoteWeatherSource
 import com.itis.weather.feature.search.data.WeatherRepositoryImpl
 import com.itis.weather.feature.search.usecase.GetWeatherByNameUseCase
@@ -10,6 +11,12 @@ import org.kodein.di.bindProvider
 import org.kodein.di.instance
 
 val weatherModule = DI.Module("weatherModule") {
+    bindProvider {
+        LocalWeatherSource(
+            settings = instance(),
+            database = instance(),
+        )
+    }
     bindProvider {
         RemoteWeatherSource(instance())
     }
