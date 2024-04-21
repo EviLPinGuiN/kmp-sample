@@ -39,3 +39,5 @@ captures
 /iosApp/build
 /iosApp/DerivedData
 iosApp/xcuserdata/
+/iosApp/iosApp.xcodeproj/xcuserdata/
+/iosApp/iosApp.xcworkspace/xcuserdata/
