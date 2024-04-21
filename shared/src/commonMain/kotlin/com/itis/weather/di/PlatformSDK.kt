@@ -1,5 +1,6 @@
 package com.itis.weather.di
 
+import com.itis.weather.core.binding.FirebaseCrashlyticsBindings
 import com.itis.weather.core.configuration.Configuration
 import com.itis.weather.core.configuration.PlatformConfiguration
 import com.itis.weather.core.network.networkModule
@@ -9,6 +10,7 @@ import org.kodein.di.DI
 import org.kodein.di.DirectDI
 import org.kodein.di.LazyDelegate
 import org.kodein.di.bind
+import org.kodein.di.bindSingleton
 import org.kodein.di.direct
 import org.kodein.di.instance
 import org.kodein.di.singleton
@@ -42,6 +44,10 @@ object PlatformSDK {
                 configuration
             }
             bind<PlatformConfiguration>() with singleton { configuration.platformConfiguration }
+
+            bindSingleton<FirebaseCrashlyticsBindings> {
+                configuration.firebaseCrashlyticsBindings
+            }
         },
     )
 }

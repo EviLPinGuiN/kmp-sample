@@ -10,22 +10,22 @@ import Foundation
 import Combine
 import Shared
 
-func statePublisher<T>(_ flow: CommonFlow2<T>) -> AnyPublisher<T, Never> {
-    return Deferred<Publishers.HandleEvents<PassthroughSubject<T, Never>>> {
-        let subject = PassthroughSubject<T, Never>()
-        let closeable = flow.watch { next in
-            guard let next else {
-                return
-            }
-            subject.send(next)
-        }
-
-        return subject.handleEvents(receiveCancel: {
-            closeable.close()
-        })
-    }.eraseToAnyPublisher()
-}
-
-public extension Kotlinx_coroutines_coreFlow {
-    
-}
+//func statePublisher<T>(_ flow: CommonFlow2<T>) -> AnyPublisher<T, Never> {
+//    return Deferred<Publishers.HandleEvents<PassthroughSubject<T, Never>>> {
+//        let subject = PassthroughSubject<T, Never>()
+//        let closeable = flow.watch { next in
+//            guard let next else {
+//                return
+//            }
+//            subject.send(next)
+//        }
+//
+//        return subject.handleEvents(receiveCancel: {
+//            closeable.close()
+//        })
+//    }.eraseToAnyPublisher()
+//}
+//
+//public extension Kotlinx_coroutines_coreFlow {
+//    
+//}

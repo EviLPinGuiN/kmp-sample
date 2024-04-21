@@ -34,10 +34,24 @@ captures
 /keystore/release.keystore
 /keystore/release.properties
 
-######IOS######
+###### IOS ######
 /iosApp/Pods/
 /iosApp/build
 /iosApp/DerivedData
+
 iosApp/xcuserdata/
 /iosApp/iosApp.xcodeproj/xcuserdata/
 /iosApp/iosApp.xcworkspace/xcuserdata/
+
+## Obj-C/Swift specific
+*.hmap
+
+## App packaging
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.lock
+
+## Playgrounds
+timeline.xctimeline
+playground.xcworkspace

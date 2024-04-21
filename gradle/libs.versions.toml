@@ -2,13 +2,13 @@
 agp = "8.4.0-beta02"
 
 # compose
-compose = "1.6.3"
-compose-compiler = "1.5.11" # !!! extend from kotlin version https://developer.android.com/jetpack/androidx/releases/compose-kotlin
+compose = "1.6.6"
+compose-compiler = "1.5.12" # !!! extend from kotlin version https://developer.android.com/jetpack/androidx/releases/compose-kotlin
 compose-material3 = "1.2.1"
 
 # multiplatform
 kotlin = "1.9.23"
-coroutines = "1.7.3" # https://github.com/Kotlin/kotlinx.coroutines
+coroutines = "1.8.0" # https://github.com/Kotlin/kotlinx.coroutines
 serialization = "1.6.3" # https://github.com/Kotlin/kotlinx.serialization
 immutable = "0.3.7" # https://github.com/Kotlin/kotlinx.collections.immutable
 datetime = "0.6.0-RC.2" # https://github.com/Kotlin/kotlinx-datetime
@@ -20,13 +20,17 @@ buildKonfig = "0.15.1" # https://github.com/yshrsmz/BuildKonfig
 
 # androidx https://developer.android.com/jetpack/androidx/versions
 androidx-lifecycle = "2.7.0"
-androidx-activityCompose = "1.8.2"
+androidx-activityCompose = "1.9.0"
 androidx-splashscreen = "1.0.1"
 
-coil = "2.4.0" # https://github.com/coil-kt/coil
+coil = "2.6.0" # https://github.com/coil-kt/coil
+
+firebase-bom = "32.8.1" # https://firebase.google.com/docs/android/learn-more#bom
+googleService = "4.4.1"
+crashlytics = "2.9.9"
 
 # testing
-mockk = "1.13.9" # https://github.com/mockk/mockk
+mockk = "1.13.10" # https://github.com/mockk/mockk
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -80,6 +84,13 @@ sqldelight-sqlite-driver = { module = "app.cash.sqldelight:sqlite-driver", versi
 sqldelight-sqlite-adapter = { module = "app.cash.sqldelight:primitive-adapters", version.ref = "sqlDelight" }
 sqldelight-coroutines-extensions = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqlDelight" }
 
+# firebase
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics-ktx" }
+firebase-config = { module = "com.google.firebase:firebase-config" }
+firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics-ktx" }
+firebase-performance = { module = "com.google.firebase:firebase-perf" }
+
 timber = "com.jakewharton.timber:timber:5.0.1"
 
 mockk-jvm = { module = "io.mockk:mockk", version.ref = "mockk" }
@@ -94,6 +105,8 @@ kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = 
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 buildKonfig = { id = "com.codingfeline.buildkonfig", version.ref = "buildKonfig" }
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqlDelight" }
+googleService = { id = "com.google.gms.google-services", version.ref = "googleService" }
+crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "crashlytics" }
 
 [bundles]
 ktorClientCommon = [

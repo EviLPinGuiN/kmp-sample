@@ -2,6 +2,7 @@ package com.itis.weather.android.app
 
 import android.os.Build
 import com.itis.weather.android.BuildConfig
+import com.itis.weather.android.app.bindings.AndroidFirebaseCrashlyticsBindings
 import com.itis.weather.core.configuration.Configuration
 import com.itis.weather.core.configuration.PlatformConfiguration
 import com.itis.weather.di.PlatformSDK
@@ -17,7 +18,9 @@ fun AppDelegate.initShared() {
             deviceType = resources.deviceType
         ),
         isDebug = BuildConfig.DEBUG,
-        isHttpLoggingEnabled = BuildConfig.DEBUG
+        isHttpLoggingEnabled = BuildConfig.DEBUG,
+
+        firebaseCrashlyticsBindings = AndroidFirebaseCrashlyticsBindings()
     )
     PlatformSDK.init(conf = config)
 }

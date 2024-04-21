@@ -8,7 +8,7 @@ import org.kodein.di.DI
 import org.kodein.di.bindSingleton
 import org.kodein.di.instance
 
-val storageModule = DI.Module {
+val storageModule = DI.Module(name = "storageModule") {
 
     bindSingleton<Settings> {
         SettingsFactory().create(

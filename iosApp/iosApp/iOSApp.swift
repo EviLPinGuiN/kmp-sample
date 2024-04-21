@@ -4,6 +4,8 @@ import Shared
 @main
 struct iOSApp: App {
 
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+
     init() {
         initShared()
     }
@@ -33,7 +35,8 @@ struct iOSApp: App {
                 deviceType: UIDevice.current.deviceType
             ),
             isHttpLoggingEnabled: isDebug,
-            isDebug: isDebug
+            isDebug: isDebug,
+            firebaseCrashlyticsBindings: IOSFirebaseCrashlyticsBindings()
         )
 
         PlatformSDK().doInit(conf: config)

@@ -1,5 +1,6 @@
 package com.itis.weather.feature.search.presentation.city
 
+import com.itis.weather.core.binding.FirebaseCrashlyticsBindings
 import com.itis.weather.core.viewmodel.BaseViewModel
 import com.itis.weather.di.PlatformSDK
 import com.itis.weather.feature.search.usecase.GetWeatherByNameUseCase
@@ -16,6 +17,7 @@ class CityWeatherViewModel : BaseViewModel<CityWeatherViewState, CityWeatherActi
 ) {
 
     private val getWeatherByNameUseCase: GetWeatherByNameUseCase by PlatformSDK.lazyInstance()
+    private val crashlyticsBindings: FirebaseCrashlyticsBindings by PlatformSDK.lazyInstance()
 
     init {
         loadWeather()
@@ -23,7 +25,7 @@ class CityWeatherViewModel : BaseViewModel<CityWeatherViewState, CityWeatherActi
 
     override fun obtainEvent(event: CityWeatherEvent) {
         when (event) {
-            else -> Unit
+            CityWeatherEvent.OnSearchClick -> throw RuntimeException("HELLO")
         }
     }
 
@@ -48,6 +50,7 @@ class CityWeatherViewModel : BaseViewModel<CityWeatherViewState, CityWeatherActi
                 )
             } catch (error: Throwable) {
                 error.printStackTrace()
+                crashlyticsBindings.nonFatal(error)
                 viewState = viewState.copy(isLoading = false)
             }
         }
