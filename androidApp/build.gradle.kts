@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.konan.properties.Properties
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
@@ -25,11 +27,50 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+//            excludes += "META-INF/proguard/okhttp3.pro"
+        }
+    }
+    signingConfigs {
+        val DEBUG = "keystore/debug.properties"
+        val RELEASE = "keystore/release.properties"
+
+        val STORE_FILE = "keystore.file"
+        val STORE_PASSWORD = "keystore.password"
+        val KEY_ALIAS = "key.alias"
+        val KEY_PASSWORD = "key.password"
+
+        fun getConfig(name: String): Properties? {
+            return rootProject.projectDir.resolve(name).takeIf {
+                it.exists()
+            }?.let { Properties().apply { load(it.inputStream()) } }
+        }
+
+        create("release") {
+            val config = getConfig(RELEASE) ?: requireNotNull(getConfig(DEBUG))
+            storeFile = rootProject.projectDir.resolve(config[STORE_FILE] as String)
+            storePassword = config[STORE_PASSWORD] as String
+            keyAlias = config[KEY_ALIAS] as String
+            keyPassword = config[KEY_PASSWORD] as String
         }
     }
     buildTypes {
-        getByName("release") {
+        getByName("debug") {
+            isDebuggable = true
             isMinifyEnabled = false
+
+            signingConfig = signingConfigs.getByName("debug")
+        }
+        getByName("release") {
+            isDebuggable = false
+            isMinifyEnabled = true
+
+            signingConfig = signingConfigs.getByName("release")
+
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro",
+                *fileTree("proguard").toList().toTypedArray(),
+            )
         }
     }
     compileOptions {

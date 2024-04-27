@@ -14,7 +14,7 @@ immutable = "0.3.7" # https://github.com/Kotlin/kotlinx.collections.immutable
 datetime = "0.6.0-RC.2" # https://github.com/Kotlin/kotlinx-datetime
 sqlDelight = "2.0.2" # https://github.com/cashapp/sqldelight
 settings = "1.1.1" # https://github.com/russhwolf/multiplatform-settings
-ktor = "2.3.9" # https://github.com/ktorio/ktor
+ktor = "2.3.10" # https://github.com/ktorio/ktor
 kodein = "7.21.2" # https://github.com/kosi-libs/Kodein
 buildKonfig = "0.15.1" # https://github.com/yshrsmz/BuildKonfig
 
@@ -68,7 +68,7 @@ ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "k
 ktor-client-mock-jvm = { module = "io.ktor:ktor-client-mock-jvm", version.ref = "ktor" }
 ktor-client-ios = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" } # ios
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" } # android
-okhttp3-logging-interceptor = "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.12" # android
+okhttp3-logging-interceptor = "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.14" # android
 
 coilCompose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 coilSvg = { module = "io.coil-kt:coil-svg", version.ref = "coil" }
