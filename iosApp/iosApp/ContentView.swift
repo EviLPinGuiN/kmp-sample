@@ -15,29 +15,29 @@ struct ContentView: View {
 //        viewModel.uiState.watch { state in
 //            state?.weather.humidity
 //        }
-		Text(greet)
+		Text("asd")
             .background(.primary)
             .onTapGesture {
-                handleAction(MainAction.Close())
+//                handleAction(MainAction.Close())
             }
 //            .onReceive(statePublisher(viewModel.uiState), perform: { state in
 //                state.weather.humidity
 //            })
 	}
 
-    private func handleAction(_ action: MainAction?) {
-        switch action {
-        case _ as MainAction.Close:
-            router.routeToExit()
-        case action as MainAction.ShowMessage:
-//            print("TEST: \(action.name)")
-//        case .ShowMessage(_: name):
-            print("TEST")
-            return
-        default:
-            return
-        }
-    }
+//    private func handleAction(_ action: MainAction?) {
+//        switch action {
+//        case _ as MainAction.Close:
+//            router.routeToExit()
+//        case action as MainAction.ShowMessage:
+////            print("TEST: \(action.name)")
+////        case .ShowMessage(_: name):
+//            print("TEST")
+//            return
+//        default:
+//            return
+//        }
+//    }
 }
 
 struct ContentView_Previews: PreviewProvider {

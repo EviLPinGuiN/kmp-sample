@@ -1,5 +1,6 @@
 package com.itis.weather.feature.search.presentation.search
 
+import androidx.lifecycle.viewModelScope
 import com.itis.weather.core.viewmodel.BaseViewModel
 import com.itis.weather.di.PlatformSDK
 import com.itis.weather.feature.search.usecase.GetWeatherByNameUseCase
@@ -20,7 +21,7 @@ class SearchViewModel : BaseViewModel<SearchViewState, SearchAction, SearchEvent
     }
 
     private fun onSearchClick() {
-        scope.launch {
+        viewModelScope.launch {
             try {
                 viewState
                 val weather = getWeatherByNameUseCase.invoke(viewState.query)

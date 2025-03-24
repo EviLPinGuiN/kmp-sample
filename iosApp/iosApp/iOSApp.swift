@@ -1,10 +1,10 @@
 import SwiftUI
-import Shared
+//import Shared
 
 @main
 struct iOSApp: App {
 
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+//    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
     init() {
         initShared()
@@ -27,18 +27,18 @@ struct iOSApp: App {
         isDebug = false
         #endif
 
-        let config = Configuration(
-            platformConfiguration: PlatformConfiguration(
-                appVersionName: build ?? "0",
-                appVersionNumber: version ?? "",
-                osVersion: UIDevice.current.systemVersion,
-                deviceType: UIDevice.current.deviceType
-            ),
-            isHttpLoggingEnabled: isDebug,
-            isDebug: isDebug,
-            firebaseCrashlyticsBindings: IOSFirebaseCrashlyticsBindings()
-        )
-
-        PlatformSDK().doInit(conf: config)
+//        let config = Configuration(
+//            platformConfiguration: PlatformConfiguration(
+//                appVersionName: build ?? "0",
+//                appVersionNumber: version ?? "",
+//                osVersion: UIDevice.current.systemVersion,
+//                deviceType: UIDevice.current.deviceType
+//            ),
+//            isHttpLoggingEnabled: isDebug,
+//            isDebug: isDebug,
+//            firebaseCrashlyticsBindings: IOSFirebaseCrashlyticsBindings()
+//        )
+//
+//        PlatformSDK().doInit(conf: config)
     }
 }

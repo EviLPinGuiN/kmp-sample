@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.buildKonfig)
     alias(libs.plugins.sqldelight)
+    alias(libs.plugins.composeCompiler)
 }
 
 kotlin {
@@ -49,6 +50,8 @@ kotlin {
             implementation(libs.sqldelight.sqlite.adapter)
 
             implementation(libs.kodein.di)
+
+            implementation(libs.androidx.lifecycle.viewmodel)
         }
         androidMain.dependencies {
             implementation(libs.ktor.client.okhttp)
@@ -58,9 +61,11 @@ kotlin {
             implementation(libs.sqldelight.android.driver)
 
             implementation(libs.compose.ui)
-            implementation(libs.compose.material3)
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.compose.ui.tooling)
+            implementation(libs.compose.material3)
+            implementation(libs.compose.runtime)
+            implementation(libs.compose.foundation)
 
             implementation(libs.androidx.lifecycle.runtime)
             implementation(libs.androidx.lifecycle.runtime.compose)
@@ -68,6 +73,9 @@ kotlin {
 
             implementation(libs.coil)
             implementation(libs.coilCompose)
+
+            implementation(libs.haze)
+            implementation(libs.hazeMaterials)
 
             implementation(libs.timber)
         }
@@ -99,7 +107,7 @@ sqldelight {
 
 android {
     namespace = "com.itis.weather"
-    compileSdk = 34
+    compileSdk = 35
     defaultConfig {
         minSdk = 26
     }
@@ -110,8 +118,5 @@ android {
     buildFeatures {
         buildConfig = false
         compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
 }

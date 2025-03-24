@@ -13,7 +13,6 @@
 		530E4533753D9DB3E84C122B /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E14E79CB0966A037F849006 /* Pods_iosApp.framework */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		C14B44302BCD80D300FE4CEE /* IOSFirebaseCrashlyticsBindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14B442F2BCD80D300FE4CEE /* IOSFirebaseCrashlyticsBindings.swift */; };
-		C14B44322BCD818D00FE4CEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14B44312BCD818D00FE4CEE /* AppDelegate.swift */; };
 		C199CEB12B95AFE5003008CE /* UIDeviceExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C199CEB02B95AFE5003008CE /* UIDeviceExt.swift */; };
 		C1CE0DAE2B9F545100AA7A15 /* Flow + Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE0DAD2B9F545100AA7A15 /* Flow + Publisher.swift */; };
 		C1CE0DB22B9F662600AA7A15 /* WeatherUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CE0DB12B9F662600AA7A15 /* WeatherUIView.swift */; };
@@ -29,7 +28,6 @@
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C14B442F2BCD80D300FE4CEE /* IOSFirebaseCrashlyticsBindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSFirebaseCrashlyticsBindings.swift; sourceTree = "<group>"; };
-		C14B44312BCD818D00FE4CEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C199CEB02B95AFE5003008CE /* UIDeviceExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExt.swift; sourceTree = "<group>"; };
 		C1CE0DAD2B9F545100AA7A15 /* Flow + Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flow + Publisher.swift"; sourceTree = "<group>"; };
 		C1CE0DB12B9F662600AA7A15 /* WeatherUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherUIView.swift; sourceTree = "<group>"; };
@@ -85,7 +83,6 @@
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
-				C14B44312BCD818D00FE4CEE /* AppDelegate.swift */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -258,7 +255,6 @@
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				C14B44302BCD80D300FE4CEE /* IOSFirebaseCrashlyticsBindings.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
-				C14B44322BCD818D00FE4CEE /* AppDelegate.swift in Sources */,
 				C1CE0DAE2B9F545100AA7A15 /* Flow + Publisher.swift in Sources */,
 				C199CEB12B95AFE5003008CE /* UIDeviceExt.swift in Sources */,
 			);

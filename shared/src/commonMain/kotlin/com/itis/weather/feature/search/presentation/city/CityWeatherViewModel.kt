@@ -1,5 +1,6 @@
 package com.itis.weather.feature.search.presentation.city
 
+import androidx.lifecycle.viewModelScope
 import com.itis.weather.core.binding.FirebaseCrashlyticsBindings
 import com.itis.weather.core.viewmodel.BaseViewModel
 import com.itis.weather.di.PlatformSDK
@@ -30,24 +31,26 @@ class CityWeatherViewModel : BaseViewModel<CityWeatherViewState, CityWeatherActi
     }
 
     private fun loadWeather() {
-        scope.launch {
+        viewModelScope.launch {
             try {
                 viewState = viewState.copy(isLoading = true)
                 val weather = getWeatherByNameUseCase.invoke(query = "Paris")
-                viewState = viewState.copy(
-                    name = weather.name,
-                    isLoading = false,
-                    temp = "${weather.temp.toInt()}°",
-                    feelTemp = "Feels like: ${weather.feelTemp.toInt()}°",
-                    weatherDesc = weather.weather.desc,
-                    weatherIconUrl = weather.weather.imageUrl,
-                    humidity = "${weather.humidity}%",
-                    pressure = "${weather.pressure}hPa",
-                    cloudsPercent = "${weather.cloudsPercent}%",
-                    windSpeed = "${weather.wind.speed} km/h",
-                    sunrise = weather.day.sunrise.toFormatTime(),
-                    sunset = weather.day.sunset.toFormatTime(),
-                )
+                with(weather) {
+                    viewState = viewState.copy(
+                        name = name,
+                        isLoading = false,
+                        temp = "${temp.toInt()}°",
+                        feelTemp = "Feels like: ${feelTemp.toInt()}°",
+                        weatherDesc = this.weather.desc,
+                        weatherIconUrl = this.weather.imageUrl,
+                        humidity = "${humidity}%",
+                        pressure = "${pressure}hPa",
+                        cloudsPercent = "${cloudsPercent}%",
+                        windSpeed = "${wind.speed} km/h",
+                        sunrise = day.sunrise.toFormatTime(),
+                        sunset = day.sunset.toFormatTime(),
+                    )
+                }
             } catch (error: Throwable) {
                 error.printStackTrace()
                 crashlyticsBindings.nonFatal(error)

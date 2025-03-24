@@ -20,6 +20,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -34,6 +36,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -43,6 +46,9 @@ import com.itis.weather.core.design.PurpleMain
 import com.itis.weather.feature.search.presentation.city.CityWeatherEvent
 import com.itis.weather.feature.search.presentation.city.CityWeatherViewState
 import com.itis.weather.utils.shimmerEffect2
+import dev.chrisbanes.haze.HazeState
+import dev.chrisbanes.haze.HazeStyle
+import dev.chrisbanes.haze.hazeEffect
 import java.util.Locale
 
 @Composable
@@ -57,7 +63,7 @@ fun CityWeatherView(
                 onSearchClick = {},
                 onSettingsClick = {}
             )
-        }
+        },
     ) { paddingValues ->
         Crossfade(
             targetState = viewState.isLoading,
@@ -119,6 +125,33 @@ private fun Toolbar(
                 tint = MaterialTheme.colorScheme.onBackground,
                 contentDescription = null,
             )
+        }
+    }
+}
+
+@Composable
+private fun MaterialsCard(
+    name: String,
+    shape: Shape,
+    state: HazeState,
+    style: HazeStyle,
+    modifier: Modifier = Modifier,
+) {
+    Card(
+        shape = shape,
+        colors = CardDefaults.cardColors(
+            containerColor = Color.Transparent,
+            contentColor = MaterialTheme.colorScheme.onSurface,
+        ),
+        modifier = modifier.size(160.dp),
+    ) {
+        Box(
+            Modifier
+                .fillMaxSize()
+                .hazeEffect(state = state, style = style)
+                .padding(16.dp),
+        ) {
+            Text(name)
         }
     }
 }
@@ -288,23 +321,17 @@ private fun DetailHolder(
                     RoundedCornerShape(12.dp)
                 )
                 .blur(
-                    radius = 8.dp,
+                    radius = 24.dp,
                     edgeTreatment = BlurredEdgeTreatment(shape = RoundedCornerShape(10.dp)),
                 )
-        ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(120.dp)
-                    .background(
-                        brush = Brush.verticalGradient(
-                            colors = listOf(Color.White, PurpleMain),
-                        ),
-                        shape = RoundedCornerShape(10.dp),
-                        alpha = 0.3f
-                    )
-            )
-        }
+                .background(
+                    brush = Brush.verticalGradient(
+                        colors = listOf(Color.White, PurpleMain),
+                    ),
+                    shape = RoundedCornerShape(10.dp),
+                    alpha = 0.2f,
+                )
+        )
         Column(Modifier.padding(8.dp)) {
             Row {
                 Image(
@@ -357,7 +384,7 @@ private fun LoadingView() {
 
         Spacer(modifier = Modifier.height(56.dp))
 
-        for (i in 1..3) {
+        repeat((1..3).count()) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()

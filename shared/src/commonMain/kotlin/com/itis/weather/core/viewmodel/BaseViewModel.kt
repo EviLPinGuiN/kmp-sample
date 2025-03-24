@@ -1,5 +1,7 @@
 package com.itis.weather.core.viewmodel
 
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.itis.weather.core.CommonStateFlow
 import com.itis.weather.core.asCommonStateFlow
 import kotlinx.coroutines.channels.BufferOverflow
@@ -12,7 +14,7 @@ import kotlinx.coroutines.launch
 
 abstract class BaseViewModel<State : Any, Action, Event>(
     initState: State
-) : KmpViewModel() {
+) : ViewModel() {
 
     private val _action = MutableSharedFlow<Action>(replay = 1, onBufferOverflow = BufferOverflow.DROP_OLDEST)
     private val _viewState = MutableStateFlow(initState)
@@ -30,7 +32,7 @@ abstract class BaseViewModel<State : Any, Action, Event>(
             null
         }
         set(value) {
-            scope.launch {
+            viewModelScope.launch {
                 if (value != null) {
                     _action.emit(value)
                 } else {
