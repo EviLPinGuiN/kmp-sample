@@ -24,6 +24,7 @@ target/**
 Footer
 .gradle
 .DS_Store
+.kotlin
 
 captures
 .externalNativeBuild

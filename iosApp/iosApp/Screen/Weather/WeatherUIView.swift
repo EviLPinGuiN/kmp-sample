@@ -7,12 +7,19 @@
 //
 
 import SwiftUI
+import Shared
 
 struct WeatherUIView: View {
+    
+    @StateObject
+    var viewModel: IosWeatherViewModel = IosWeatherViewModel(
+        CityWeatherViewModel()
+    )
+    
     var body: some View {
         Spacer()
 
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("TEst")
             .frame(maxWidth: .infinity)
             .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
             .background()

@@ -9,6 +9,9 @@ struct ContentView: View {
 //    private let viewModel = XViewModel()
 
 	var body: some View {
+        WeatherUIView()
+        
+        
 //        let cancelable = statePublisher(viewModel.uiState).sink { state in
 //            state.weather.cloudsPercent
 //        }

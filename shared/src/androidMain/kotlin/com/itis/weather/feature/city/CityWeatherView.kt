@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -37,10 +38,13 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImage
+import coil3.compose.AsyncImage
+import coil3.request.ImageRequest
+import coil3.request.crossfade
 import com.itis.weather.R
 import com.itis.weather.core.design.PurpleMain
 import com.itis.weather.feature.search.presentation.city.CityWeatherEvent
@@ -48,7 +52,6 @@ import com.itis.weather.feature.search.presentation.city.CityWeatherViewState
 import com.itis.weather.utils.shimmerEffect2
 import dev.chrisbanes.haze.HazeState
 import dev.chrisbanes.haze.HazeStyle
-import dev.chrisbanes.haze.hazeEffect
 import java.util.Locale
 
 @Composable
@@ -89,6 +92,7 @@ private fun Toolbar(
     Row(
         modifier = Modifier
             .fillMaxWidth()
+            .statusBarsPadding()
             .height(56.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -148,7 +152,6 @@ private fun MaterialsCard(
         Box(
             Modifier
                 .fillMaxSize()
-                .hazeEffect(state = state, style = style)
                 .padding(16.dp),
         ) {
             Text(name)
@@ -176,12 +179,15 @@ private fun Content(
                     text = viewState.temp,
                     style = MaterialTheme.typography.headlineLarge
                 )
-                Spacer(modifier = Modifier.width(8.dp))
                 if (viewState.weatherIconUrl.isNotEmpty()) {
                     AsyncImage(
                         modifier = Modifier
-                            .size(72.dp),
-                        model = viewState.weatherIconUrl,
+                            .clip(CircleShape)
+                            .size(52.dp),
+                        model = ImageRequest.Builder(LocalContext.current)
+                            .data(viewState.weatherIconUrl)
+                            .crossfade(true)
+                            .build(),
                         contentDescription = null
                     )
                 }

@@ -12,6 +12,7 @@ import kotlinx.datetime.TimeZone
 import kotlinx.datetime.format
 import kotlinx.datetime.format.char
 import kotlinx.datetime.toLocalDateTime
+import kotlin.time.ExperimentalTime
 
 class CityWeatherViewModel : BaseViewModel<CityWeatherViewState, CityWeatherAction, CityWeatherEvent>(
     initState = CityWeatherViewState()
@@ -59,6 +60,7 @@ class CityWeatherViewModel : BaseViewModel<CityWeatherViewState, CityWeatherActi
         }
     }
 
+    @OptIn(ExperimentalTime::class)
     private fun Long.toFormatTime(): String {
         return Instant.fromEpochSeconds(this)
             .toLocalDateTime(TimeZone.currentSystemDefault())
